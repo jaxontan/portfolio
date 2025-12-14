@@ -4,12 +4,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jaxon Tan | CYBER-AVATAR [v7.1]</title>
+  <title>Jaxon Tan | CYBER-AVATAR [v6.0]</title>
 
   <!-- Import Map for Modules -->
   <script type="importmap">
         {
             "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+
+  <!-- MediaPipe Hands (Global Scripts) -->
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;500;700&family=Share+Tech+Mono&display=swap"
+    rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -50,7 +67,6 @@
     <div class="hud-corner bottom-right">
       <span class="hud-label">GESTURE_DATA</span>
       <span class="hud-value" id="gesture-data">X:0.00 Y:0.00</span>
-      <div id="debug-log" style="font-size: 10px; color: #ff0055; margin-top: 5px; max-height: 100px; overflow: hidden;">LOG: READY</div>
     </div>
 
     <!-- Camera Permission / Loader -->
@@ -108,6 +124,6 @@
 
   <!-- Main Module Script -->
   <script type="module" src="script.js"></script>
-  </body>
+</body>
 
 </html>

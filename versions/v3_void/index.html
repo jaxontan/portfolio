@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" class="void-theme">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jaxon Tan — Kinetic Void</title>
+  <meta name="description" content="Digital experiences from the void." />
+
+  <!-- Fonts: Huge Impact & Monospaced Detail -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Italiana&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- SVG Filters for Liquid Distortion -->
+  <svg style="display: none;">
+    <defs>
+      <filter id="liquid">
+        <feTurbulence type="fractalNoise" baseFrequency="0.01 0.005" numOctaves="5" seed="2">
+          <animate attributeName="baseFrequency" dur="20s" values="0.001 0.005; 0.003 0.008; 0.001 0.005"
+            repeatCount="indefinite" />
+        </feTurbulence>
+        <feDisplacementMap in="SourceGraphic" scale="30" />
+      </filter>
+      <filter id="noise">
+        <feTurbulence type="fractalNoise" baseFrequency="0.8" />
+      </filter>
+    </defs>
+  </svg>
+
+  <!-- Global Noise Overlay -->
+  <div class="noise-layer"></div>
+
+  <!-- Cursor Distortion Field -->
+  <div class="cursor-distortion" id="cursor"></div>
+
+  <!-- Ghost Image Layer (Project Previews) -->
+  <div class="ghost-layer">
+    <img id="ghost-img" src="" alt="" />
+  </div>
+
+  <!-- Main Fluid Content -->
+  <main class="void-container">
+
+    <!-- Navigation Corners -->
+    <nav class="corner-nav top-left">
+      <span class="nav-text">Jaxon Tan</span>
+    </nav>
+    <nav class="corner-nav top-right">
+      <span class="nav-text" id="time-display">00:00</span>
+    </nav>
+    <nav class="corner-nav bottom-left">
+      <a href="mailto:yjtanyuejun@outlook.com" class="nav-link">Contact</a>
+    </nav>
+    <nav class="corner-nav bottom-right">
+      <span class="nav-text">SGT / Singapore</span>
+    </nav>
+
+    <!-- Section 01: The Intro -->
+    <section class="void-section intro-section">
+      <h1 class="fluid-type title-main" data-speed="0.5">
+        <span class="word">DIGITAL</span>
+        <span class="word accent">ALCHEMY</span>
+      </h1>
+      <div class="scroll-prompt">
+        <span class="scroll-line"></span>
+      </div>
+    </section>
+
+    <!-- Section 02: The Philosophy -->
+    <section class="void-section philosophy-section">
+      <p class="fluid-text large">
+        Searching for meaning in the <span class="distort-text">noise</span>.
+        Crafting interfaces that <span class="accent">breathe</span>.
+      </p>
+      <div class="skills-ticker">
+        <div class="ticker-track">
+          <span>Typescript</span><span>React</span><span>Next.js</span><span>Python</span><span>WebGL</span><span>Node.js</span>
+          <span>Typescript</span><span>React</span><span>Next.js</span><span>Python</span><span>WebGL</span><span>Node.js</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 03: The Work (List View) -->
+    <section class="void-section work-section">
+      <div class="project-list">
+        <div class="project-item"
+          data-img="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop">
+          <span class="p-num">01</span>
+          <h2 class="p-title">Schedule App</h2>
+          <span class="p-cat">Full Stack</span>
+        </div>
+        <div class="project-item"
+          data-img="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2670&auto=format&fit=crop">
+          <span class="p-num">02</span>
+          <h2 class="p-title">Snake Game</h2>
+          <span class="p-cat">Object Oriented</span>
+        </div>
+        <div class="project-item"
+          data-img="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=2574&auto=format&fit=crop">
+          <span class="p-num">03</span>
+          <h2 class="p-title">MovieDB</h2>
+          <span class="p-cat">API Integration</span>
+        </div>
+        <div class="project-item"
+          data-img="https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=2670&auto=format&fit=crop">
+          <span class="p-num">04</span>
+          <h2 class="p-title">AI Study</h2>
+          <span class="p-cat">Machine Learning</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 04: The Void (About) -->
+    <section class="void-section about-section">
+      <div class="about-grid">
+        <div class="about-block">
+          <h3>Origin</h3>
+          <p>Software Engineering student at Nanyang Polytechnic. Building the future from Singapore.</p>
+        </div>
+        <div class="about-block">
+          <h3>Focus</h3>
+          <p>AI Integration, Fluid Interfaces, High-Performance Web Applications.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 05: The End -->
+    <section class="void-section outro-section">
+      <a href="mailto:yjtanyuejun@outlook.com" class="giant-link">
+        <span>LET'S</span>
+        <span class="outline">TALK</span>
+      </a>
+      <div class="social-links">
+        <a href="https://github.com/jaxontan" target="_blank">GH</a>
+        <a href="https://linkedin.com/in/jaxon-tan" target="_blank">LI</a>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

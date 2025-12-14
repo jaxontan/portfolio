@@ -4,12 +4,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jaxon Tan | CYBER-AVATAR [v7.1]</title>
+  <title>Jaxon Tan | CYBER-CORE [v4.0]</title>
 
-  <!-- Import Map for Modules -->
-  <script type="importmap">
-        {
-            "imports": {
+  <!-- Three.js Core -->
+  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;500;700&family=Share+Tech+Mono&display=swap"
+    rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -19,24 +23,17 @@
   <!-- WebGL Canvas -->
   <canvas id="webgl"></canvas>
 
-  <!-- Webcam Feed -->
-  <video id="webcam-video" style="display: none;" playsinline></video>
-
-  <!-- Gesture HUD Overlay -->
-  <canvas id="gesture-canvas"></canvas>
-
   <!-- Holographic Overlay (HUD) -->
   <div class="hud-layer">
     <div class="hud-corner top-left">
       <div class="scan-line"></div>
-      <span class="hud-label">SYS.STATUS: <span id="sys-status" class="blink">OFFLINE</span></span>
-      <span class="hud-value">AVATAR_LINK // STANDBY</span>
+      <span class="hud-label">SYS.STATUS: ONLINE</span>
+      <span class="hud-value">JAXON.TAN // PORTFOLIO</span>
     </div>
 
     <div class="hud-corner top-right">
-      <span class="hud-label">HAND_TRACKING</span>
-      <span class="hud-value" id="hand-status">DISABLED</span>
-      <div class="gesture-icon" id="gesture-icon">🤖</div>
+      <span class="hud-label">COORDS</span>
+      <span class="hud-value" id="coords">000.00 / 000.00</span>
     </div>
 
     <div class="hud-corner bottom-left">
@@ -48,26 +45,25 @@
     </div>
 
     <div class="hud-corner bottom-right">
-      <span class="hud-label">GESTURE_DATA</span>
-      <span class="hud-value" id="gesture-data">X:0.00 Y:0.00</span>
-      <div id="debug-log" style="font-size: 10px; color: #ff0055; margin-top: 5px; max-height: 100px; overflow: hidden;">LOG: READY</div>
+      <span class="hud-label">SESSION_ID</span>
+      <span class="hud-value" id="session-time">00:00:00</span>
     </div>
 
-    <!-- Camera Permission / Loader -->
+    <!-- Central Loader / Target System -->
     <div class="loader-overlay" id="loader">
-      <span class="loader-text pulse">NEURAL_LINK_REQUIRED</span>
-      <button id="camera-btn" class="cyber-btn-small">INITIALIZE AVATAR</button>
-      <p class="loader-sub">Enables Camera & Audio</p>
+      <div class="loader-ring"></div>
+      <span class="loader-text">INITIALIZING CORE...</span>
     </div>
   </div>
 
-  <!-- Scroll Content -->
+  <!-- Scroll Content (Triggers Camera Moves) -->
   <main class="scroll-content">
+
     <!-- Section 0: Start -->
     <section class="cyber-section" id="intro">
       <div class="cyber-box">
-        <h1 class="cyber-title">VIRTUAL<br><span class="hollow">ASSISTANT</span></h1>
-        <p class="cyber-subtitle">AI-POWERED INTERFACE</p>
+        <h1 class="cyber-title">CYBER<br><span class="hollow">CORE</span></h1>
+        <p class="cyber-subtitle">IMMERSIVE DIGITAL ENGINEERING</p>
         <div class="cyber-decor"></div>
       </div>
     </section>
@@ -79,7 +75,11 @@
           <span class="card-id">PRJ_01</span>
           <span class="card-title">SCHEDULE_SYS</span>
         </div>
-        <p class="card-body">Next.js Architecture</p>
+        <p class="card-body">Full-Stack Application utilizing Next.js architecture.</p>
+        <div class="card-stats">
+          <span>REACT</span>
+          <span>NODE</span>
+        </div>
       </div>
 
       <div class="cyber-card">
@@ -87,7 +87,11 @@
           <span class="card-id">PRJ_02</span>
           <span class="card-title">SNAKE_PROTOCOL</span>
         </div>
-        <p class="card-body">Game Engine Sim</p>
+        <p class="card-body">Object-Oriented Game Engine simulation.</p>
+        <div class="card-stats">
+          <span>CANVAS</span>
+          <span>LOGIC</span>
+        </div>
       </div>
     </section>
 
@@ -97,17 +101,24 @@
         <div class="term-header">USER_BIO.log</div>
         <div class="term-body">
           <p>> ID: Jaxon Tan</p>
-          <p>> SYS: Avatar Online</p>
+          <p>> ROLE: Software Engineer</p>
           <p>> LOC: Singapore, SG</p>
+          <p>> SPEC: AI Integration, WebGL, High-Performance Systems.</p>
           <p class="blink">_</p>
         </div>
       </div>
     </section>
 
+    <!-- Section 3: Contact -->
+    <section class="cyber-section center-align" id="end">
+      <a href="mailto:yjtanyuejun@outlook.com" class="cyber-btn">
+        <span class="btn-glitch" data-text="INITIATE_UPLINK">INITIATE_UPLINK</span>
+      </a>
+    </section>
+
   </main>
 
-  <!-- Main Module Script -->
-  <script type="module" src="script.js"></script>
-  </body>
+  <script src="script.js"></script>
+</body>
 
 </html>

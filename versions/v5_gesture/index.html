@@ -4,12 +4,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jaxon Tan | CYBER-AVATAR [v7.1]</title>
+  <title>Jaxon Tan | GESTURE-CORE [v5.0]</title>
 
-  <!-- Import Map for Modules -->
-  <script type="importmap">
-        {
-            "imports": {
+  <!-- Three.js Core -->
+  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+
+  <!-- MediaPipe Hands -->
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;500;700&family=Share+Tech+Mono&display=swap"
+    rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -19,7 +29,7 @@
   <!-- WebGL Canvas -->
   <canvas id="webgl"></canvas>
 
-  <!-- Webcam Feed -->
+  <!-- Webcam Feed (Hidden but used for texture) -->
   <video id="webcam-video" style="display: none;" playsinline></video>
 
   <!-- Gesture HUD Overlay -->
@@ -29,14 +39,14 @@
   <div class="hud-layer">
     <div class="hud-corner top-left">
       <div class="scan-line"></div>
-      <span class="hud-label">SYS.STATUS: <span id="sys-status" class="blink">OFFLINE</span></span>
-      <span class="hud-value">AVATAR_LINK // STANDBY</span>
+      <span class="hud-label">SYS.STATUS: <span id="sys-status" class="blink">WAITING_FOR_UPLINK</span></span>
+      <span class="hud-value">JAXON.TAN // GESTURE_CORE</span>
     </div>
 
     <div class="hud-corner top-right">
       <span class="hud-label">HAND_TRACKING</span>
-      <span class="hud-value" id="hand-status">DISABLED</span>
-      <div class="gesture-icon" id="gesture-icon">🤖</div>
+      <span class="hud-value" id="hand-status">OFFLINE</span>
+      <div class="gesture-icon" id="gesture-icon">✋</div>
     </div>
 
     <div class="hud-corner bottom-left">
@@ -49,15 +59,14 @@
 
     <div class="hud-corner bottom-right">
       <span class="hud-label">GESTURE_DATA</span>
-      <span class="hud-value" id="gesture-data">X:0.00 Y:0.00</span>
-      <div id="debug-log" style="font-size: 10px; color: #ff0055; margin-top: 5px; max-height: 100px; overflow: hidden;">LOG: READY</div>
+      <span class="hud-value" id="gesture-data">X:000 Y:000</span>
     </div>
 
     <!-- Camera Permission / Loader -->
     <div class="loader-overlay" id="loader">
       <span class="loader-text pulse">NEURAL_LINK_REQUIRED</span>
-      <button id="camera-btn" class="cyber-btn-small">INITIALIZE AVATAR</button>
-      <p class="loader-sub">Enables Camera & Audio</p>
+      <button id="camera-btn" class="cyber-btn-small">ENABLE CAMERA FEED</button>
+      <p class="loader-sub">Allow camera access for gesture control</p>
     </div>
   </div>
 
@@ -66,8 +75,8 @@
     <!-- Section 0: Start -->
     <section class="cyber-section" id="intro">
       <div class="cyber-box">
-        <h1 class="cyber-title">VIRTUAL<br><span class="hollow">ASSISTANT</span></h1>
-        <p class="cyber-subtitle">AI-POWERED INTERFACE</p>
+        <h1 class="cyber-title">VIRTUAL<br><span class="hollow">PRESENCE</span></h1>
+        <p class="cyber-subtitle">GESTURE-CONTROLLED INTERFACE</p>
         <div class="cyber-decor"></div>
       </div>
     </section>
@@ -79,6 +88,7 @@
           <span class="card-id">PRJ_01</span>
           <span class="card-title">SCHEDULE_SYS</span>
         </div>
+        <!-- Reduced text for clean 3D look -->
         <p class="card-body">Next.js Architecture</p>
       </div>
 
@@ -97,7 +107,7 @@
         <div class="term-header">USER_BIO.log</div>
         <div class="term-body">
           <p>> ID: Jaxon Tan</p>
-          <p>> SYS: Avatar Online</p>
+          <p>> SYS: Hand Tracking Online</p>
           <p>> LOC: Singapore, SG</p>
           <p class="blink">_</p>
         </div>
@@ -106,8 +116,7 @@
 
   </main>
 
-  <!-- Main Module Script -->
-  <script type="module" src="script.js"></script>
-  </body>
+  <script src="script.js"></script>
+</body>
 
 </html>
